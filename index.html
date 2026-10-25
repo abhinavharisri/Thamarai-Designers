@@ -12,7 +12,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
     <link rel="preload" as="image" media="(max-aspect-ratio: 3/4)" imagesrcset="images/web/sm/campaign-tall.jpg?v=1 720w, images/web/campaign-tall.jpg?v=1 1080w" imagesizes="100vw" fetchpriority="high">
     <link rel="preload" as="image" media="(min-aspect-ratio: 751/1000)" imagesrcset="images/web/sm/campaign-wide.jpg?v=1 1200w, images/web/campaign-wide.jpg?v=1 2200w" imagesizes="100vw" fetchpriority="high">
-    <link rel="stylesheet" href="style.css?v=41">
+    <link rel="stylesheet" href="style.css?v=42">
     <script>
         /* Show the entrance once per visit */
         try { if (sessionStorage.getItem('td-entered') === '1') document.documentElement.classList.add('was-entered'); } catch (e) {}
@@ -153,6 +153,11 @@
             <div class="footer__base">
                 <span>© 2026 Thamarai Designers</span>
                 <span>Bespoke embroidery, made once</span>
+                <a class="footer__credit" href="https://hundrd.studio/" target="_blank" rel="noopener">
+                    <span>Built by</span>
+                    <svg viewBox="0 0 96 96" width="16" height="16" aria-hidden="true"><defs><pattern id="hd-px-foot" width="10" height="10" patternUnits="userSpaceOnUse"><rect width="6" height="6" fill="currentColor"/></pattern></defs><rect width="96" height="96" fill="url(#hd-px-foot)"/><rect x="90" y="90" width="6" height="6" fill="#FF4A1C"/></svg>
+                    <b>hundrd studios</b>
+                </a>
             </div>
         </div>
     </footer>
