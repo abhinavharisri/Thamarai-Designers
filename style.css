@@ -472,10 +472,12 @@ main { min-height: 100vh; overflow-x: clip; }
 .footer .btn--light:hover { color: var(--ink); }
 .footer__word { font-family: var(--serif); font-weight: 300; font-size: clamp(1.6rem, 6.6vw, 7.4rem); line-height: 0.9; letter-spacing: 0.04em; text-align: center; color: transparent; -webkit-text-stroke: 1px rgba(166,124,82,0.5); white-space: nowrap; }
 .footer__base { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; margin-top: 3.5rem; padding-top: 1.4rem; border-top: 1px solid var(--line); font-size: 0.78rem; color: rgba(243,232,216,0.45); }
-.footer a.footer__credit { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.78rem; line-height: 1; color: rgba(243,232,216,0.45); transition: color 0.3s ease; }
-.footer__credit svg { flex-shrink: 0; color: rgba(243,232,216,0.75); transition: color 0.3s ease; }
-.footer__credit b { font-weight: 500; letter-spacing: -0.01em; color: rgba(243,232,216,0.8); transition: color 0.3s ease; }
-.footer a.footer__credit:hover, .footer__credit:hover b, .footer__credit:hover svg { color: #f3e8d8; }
+.footer a.footer__credit { display: inline-flex; align-items: center; gap: 0.65rem; font-size: 0.95rem; line-height: 1; color: rgba(243,232,216,0.65); transition: color 0.3s ease; }
+.footer__credit svg { flex-shrink: 0; color: rgba(243,232,216,0.85); transition: color 0.3s ease; }
+.footer__credit b { font-size: 1.05rem; font-weight: 600; letter-spacing: -0.02em; color: #f3e8d8; }
+.footer a.footer__credit:hover, .footer__credit:hover svg { color: #fff7e9; }
+.footer__credit .hd-pulse { animation: hdPulse 1.6s ease-in-out infinite; }
+@keyframes hdPulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.15; } }
 
 
 /* ==========================================================================
@@ -756,4 +758,5 @@ body.menu-open .scroll-lotus, body.is-gated .scroll-lotus { opacity: 0; pointer-
     .booked__inner > :not(svg) { opacity: 1 !important; transform: none !important; }
     .booked__lotus path { stroke-dashoffset: 0 !important; }
     .campaign__photo img, .campaign__words > * { opacity: 1 !important; transform: none !important; }
+    .footer__credit .hd-pulse { animation: none !important; opacity: 1 !important; }
 }
