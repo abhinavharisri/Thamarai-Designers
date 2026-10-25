@@ -42,7 +42,7 @@ const FAQ = [
     ['Can I ask for a design of my own?',
      'Yes. Choose "Something bespoke" in the request form, or tell us on WhatsApp what you have in mind.'],
     ['Can I visit the boutique?',
-     'Yes, by appointment. The boutique is in Saravanampatti, Coimbatore; the address and map are on the contact page.']
+     'Yes, by appointment. Our main boutique is on Sathy Main Road, S. S. Kulam, Coimbatore, with a second address in Saravanampatti; both addresses and directions are on the contact page.']
 ];
 
 /* Client stories — the section stays hidden until at least one real story is added.

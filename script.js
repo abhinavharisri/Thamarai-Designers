@@ -16,6 +16,9 @@
     const num = (p) => `Nº ${p.code.replace(/^TD-/, '')}`;
     const range = (s) => String(s).replace(/(\d)\s*-\s*(\d)/g, '$1–$2');
     const waLink = (text) => `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(text)}`;
+    const MAIN_ADDRESS = '8/90D, Sathy Main Road, Kurumbapalayam, S. S. Kulam, Coimbatore, Tamil Nadu 641107';
+    const SECOND_ADDRESS = '4, Cherama, 332/3, Thirumurugan Nagar Road, Saravanampatti, Coimbatore 641014';
+    const directions = (address) => `https://www.google.com/maps/dir/?api=1&amp;destination=${encodeURIComponent(address)}`;
 
     const LOTUS = `<svg viewBox="0 0 100 92" aria-hidden="true">
         <path d="M50 14 C60 30 60 52 50 68 C40 52 40 30 50 14 Z"/>
@@ -453,14 +456,15 @@ ${CLIENT_STORIES.length ? `
             </form>
             <aside data-reveal style="--d:.1s">
                 <dl class="info">
-                    <div><dt>Visit</dt><dd>4, Cherama, 332/3, Thirumurugan Nagar Road, Saravanampatti, Coimbatore 641014</dd></div>
+                    <div><dt>Main boutique</dt><dd>${MAIN_ADDRESS}<br><a href="${directions(MAIN_ADDRESS)}" target="_blank" rel="noreferrer">Get directions →</a></dd></div>
+                    <div><dt>Also at</dt><dd>${SECOND_ADDRESS}<br><a href="${directions(SECOND_ADDRESS)}" target="_blank" rel="noreferrer">Get directions →</a></dd></div>
                     <div><dt>Phone · Thamarai Selvi</dt><dd><a href="tel:+919047474752">+91 90474 74752</a></dd></div>
                     <div><dt>WhatsApp</dt><dd><a href="https://wa.me/${WHATSAPP}" target="_blank" rel="noreferrer">Message the boutique →</a></dd></div>
                     <div><dt>Email</dt><dd><a href="mailto:thamaraidesigner24@gmail.com">thamaraidesigner24@gmail.com</a></dd></div>
                     <div><dt>Instagram</dt><dd><a href="https://www.instagram.com/threads_by_thamarai/" target="_blank" rel="noreferrer">@threads_by_thamarai</a></dd></div>
                 </dl>
                 <div class="map">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1002444.6849472626!2d75.81891047812498!3d11.053650100000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba8570011b7e14d%3A0x39879a1be0a00086!2sTHAMARAI%20DESIGNERS!5e0!3m2!1sen!2sin!4v1774978673514!5m2!1sen!2sin" title="Thamarai Designers location" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <iframe src="https://www.google.com/maps?q=${encodeURIComponent(MAIN_ADDRESS)}&amp;output=embed" title="Thamarai Designers main boutique location" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
             </aside>
         </section>`;
