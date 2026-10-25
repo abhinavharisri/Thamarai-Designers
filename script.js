@@ -36,7 +36,7 @@
 
     const FILTERS = [['all', 'All'], ...OCCASIONS.map((o) => [o.id, o.name])];
 
-    // every photograph of a piece: the studio photo first, then any on-model photos
+    // every photograph of a piece: worn first, then the studio photograph
     const photos = (p) => [p.image, ...(p.more || [])];
 
     const tile = (p, i) => `
@@ -243,12 +243,14 @@ ${CLIENT_STORIES.length ? `
     /* The lookbook: crossfading full-screen looks with a timed progress line. */
     let stage = null;
     function bindHome() {
-        // the campaign photograph comes alive once it has loaded: a quiet five-second loop
+        // the campaign photograph gives way to the brand film once it can play
         const video = $('.campaign__video');
         const saveData = navigator.connection && navigator.connection.saveData;
         if (video && !reduceMotion && !saveData) {
             const tall = window.matchMedia('(max-aspect-ratio: 3/4)').matches;
-            video.src = `media/hero-${tall ? 'tall' : 'wide'}.mp4?v=1`;
+            // HEVC is the same picture at half the size; browsers without it get H.264
+            const hevc = video.canPlayType('video/mp4; codecs="hvc1"') !== '';
+            video.src = `media/film-${tall ? 'tall' : 'wide'}${hevc ? '.hevc' : ''}.mp4?v=3`;
             video.addEventListener('playing', () => video.classList.add('is-playing'), { once: true });
             video.play().catch(() => {});
         }
@@ -358,7 +360,7 @@ ${CLIENT_STORIES.length ? `
             <div class="piece__grid">
                 <div class="piece__media" data-reveal>
                     <div class="frame piece__frame" id="piece-frame">
-                        <div class="piece__track">${photos(p).map((src, k) => `<figure class="piece__slide"><img src="${src}" sizes="(max-width: 960px) 100vw, 50vw" alt="${esc(p.name)}${k ? ' — worn' : ''}"${k ? ' loading="lazy"' : ''}></figure>`).join('')}</div>
+                        <div class="piece__track">${photos(p).map((src, k) => `<figure class="piece__slide"><img src="${src}" sizes="(max-width: 960px) 100vw, 50vw" alt="${esc(p.name)}"${k ? ' loading="lazy"' : ''}></figure>`).join('')}</div>
                     </div>
                     ${p.more ? `<div class="piece__thumbs" role="tablist" aria-label="Photographs">${photos(p).map((src, k) => `<button type="button" role="tab" class="${k ? '' : 'is-active'}" aria-selected="${!k}" aria-label="Photograph ${k + 1}"><img src="${src}" sizes="80px" alt=""></button>`).join('')}</div>` : ''}
                 </div>
